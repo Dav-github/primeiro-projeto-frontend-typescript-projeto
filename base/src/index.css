@@ -1,3 +1,10 @@
+:root {
+    --cinza-escuro: #2e2e36;
+    --cinza-claro: #44444d;
+    --branco: #fff;
+    --rosa: #da0175;
+}
+
 * {
     box-sizing: border-box;
     margin: 0px;
