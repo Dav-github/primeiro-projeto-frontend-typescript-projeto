@@ -19,7 +19,7 @@ export default function Home() {
         event.preventDefault();
         try {
             const res = await api.post("/login", { email, password });
-            console.log(res);
+            console.log(res.data);
             return;
         } catch (error) {
             console.log(error.message);
@@ -30,13 +30,11 @@ export default function Home() {
     const handleChangeEmail = (event: FormEvent) => {
         event.preventDefault();
         setEmail(event.target.value);
-        console.log(email);
     };
 
     const handleChangePassword = (event: FormEvent) => {
         event.preventDefault();
         setPassword(event.target.value);
-        console.log(password);
     };
 
     return (
