@@ -2,6 +2,7 @@ import { Container } from "../../components/Container";
 import styled from "styled-components";
 import logo from "../../assets/logo.png";
 import { FormEvent, useState } from "react";
+import { api } from "../../services/api";
 
 const DivForm = styled.div`
     width: 494px;
@@ -16,8 +17,14 @@ export default function Home() {
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
-        console.log(email);
-        console.log(password);
+        try {
+            const res = await api.post("/login", { email, password });
+            console.log(res);
+            return;
+        } catch (error) {
+            console.log(error.message);
+            return;
+        }
     }
 
     const handleChangeEmail = (event: FormEvent) => {
