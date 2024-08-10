@@ -10,3 +10,17 @@
     margin: 0px;
     padding: 0px;
 }
+
+input {
+    background-color: var(--cinza-escuro);
+    color: var(--branco);
+    width: 300px;
+    height: 48px;
+}
+
+button {
+    background-color: var(--rosa);
+    color: var(--branco);
+    height: 48px;
+    width: 300px;
+}
