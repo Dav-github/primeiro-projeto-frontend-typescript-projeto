@@ -3,6 +3,8 @@ import styled from "styled-components";
 import logo from "../../assets/logo.png";
 import { FormEvent, useState } from "react";
 import { api } from "../../services/api";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const DivForm = styled.div`
     width: 494px;
@@ -14,12 +16,16 @@ const DivForm = styled.div`
 export default function Home() {
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
+    const auth = useAuth();
+    const navigate = useNavigate();
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
         try {
             const res = await api.post("/login", { email, password });
-            console.log(res.data);
+            auth.gravarToken(res.data.accessToken);
+
+            navigate("/dashboard");
             return;
         } catch (error) {
             console.log(error.message);
