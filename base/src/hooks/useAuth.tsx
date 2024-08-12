@@ -12,9 +12,8 @@ export function useAuth(): ReturnAuth {
         // console.log(localStorage.getItem("token"));
         return "lerToken";
     };
-    const apagarToken = (): string => {
-        // localStorage.removeItem("token");
-        return "ApagarToken";
+    const apagarToken = () => {
+        localStorage.removeItem("token");
     };
 
     return {
